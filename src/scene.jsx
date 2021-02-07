@@ -1,5 +1,5 @@
 import React from 'react';
-import { Welcome } from './welcome';
+import { Welcome } from './levels/welcome';
 
 class Scene extends React.Component {
   render() {
