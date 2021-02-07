@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
-  const [date] = useState(null);
+  const [date, setDate] = useState(null);
   useEffect(() => {
     async function getDate(level, user, pass) {
       const data = {
@@ -22,6 +22,7 @@ function App() {
 
       const res = await fetch('/api/form', requestOptions);
       console.log(res);
+      setDate(res.Text);
     }
     getDate(0, "crow", "forest");
   }, []);
