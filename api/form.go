@@ -40,7 +40,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	    		true_user := usernames[f.Level]
 	    		true_pass := passwords[f.Level]
 
-	    		if (f.Username == true_user && f.Passord == true_pass) {
+	    		if (f.Username == true_user && f.Password == true_pass) {
 	    			fmt.Fprint(w, "SUCCESS")
 	    		} else {
 	    			fmt.Fprint(w, hints[f.Level])
