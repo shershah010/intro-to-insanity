@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
-  const [date, setDate] = useState(null);
+  const [date] = useState(null);
   useEffect(() => {
     async function getDate(level, user, pass) {
       const data = {
