@@ -24,7 +24,7 @@ var hints = []string {
 type Form struct {
 	Level int
 	Username string
-	password string
+	Password string
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
@@ -34,7 +34,19 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 	    } else {
-	    	fmt.Fprint(w, "SUCCESS")
+	    	if (f.Level >= len(usernames)) {
+	    		fmt.Fprint(w, "Index Out of Bounds Exception")
+	    	} else {
+	    		true_user := usernames[f.Level]
+	    		true_pass := passwords[f.Level]
+
+	    		if (f.Username == true_user && f.Passord == true_pass) {
+	    			fmt.Fprint(w, "SUCCESS")
+	    		} else {
+	    			fmt.Fprint(w, hints[f.Level])
+	    		}
+	    	}
+	    	
 	    }
 	} else {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
