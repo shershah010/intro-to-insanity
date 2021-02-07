@@ -22,9 +22,9 @@ var hints = []string {
 }
 
 type Form struct {
-	level int
-	user string
-	pass string
+	Level int
+	User string
+	Pass string
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {

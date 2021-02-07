@@ -11,9 +11,9 @@ function App() {
 
   async function submitForm(level, user, pass) {
     const data = {
-      level: level,
-      user: user,
-      pass: pass
+      Level: level,
+      User: user,
+      Pass: pass
     };
 
     const requestOptions = {
