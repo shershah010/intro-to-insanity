@@ -6,19 +6,19 @@ import (
 	"encoding/json"
 )
 
-usernames = []string {
+var usernames = []string {
 	"crow",
-	"simple"
+	"simple",
 }
 
-passwords = []string {
+var passwords = []string {
 	"forest",
-	"cipher"
+	"cipher",
 }
 
-hints = []string {
+var hints = []string {
 	"What do you see?",
-	"Just break it."
+	"Just break it.",
 }
 
 type Form struct {
