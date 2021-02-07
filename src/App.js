@@ -34,6 +34,7 @@ function App() {
 
   return (
     <main>
+      <p>{level}</p>
       <Scene level={level} />
       <Form level={level} onFormSubmit={submitForm} />
     </main>
