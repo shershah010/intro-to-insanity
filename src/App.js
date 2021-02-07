@@ -5,9 +5,9 @@ import './App.css';
 
 function App() {
 
-  const [date, setDate] = useState(null);
+  const [level, setLevel] = useState(0);
   useEffect(() => {
-    async function getDate(level, user, pass) {
+    async function submitForm(level, user, pass) {
       const data = {
         level: level,
         user: user,
@@ -22,11 +22,16 @@ function App() {
 
       const res = await fetch('/api/form', requestOptions);
       const message = await res.text();
-      console.log(message);
-      setDate(message);
+
+      if (message === 'SUCCESS') {
+        setLevel(level + 1);
+      } else {
+
+      }
+     
 
     }
-    getDate(0, "crow", "forest");
+    submitForm(0, "crow", "forest");
   }, []);
   return (
     <main>
@@ -65,7 +70,7 @@ function App() {
       </p>
       <br />
       <h2>The date according to Go is:</h2>
-      <p>{date ? date : 'Loading date...'}</p>
+      <p>{ level }</p>
     </main>
   );
 }
