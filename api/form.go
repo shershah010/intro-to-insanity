@@ -3,7 +3,7 @@ package handler
 import (
 	"fmt"
 	"net/http"
-	"github.com/graphql-go/graphql"
+	"encoding/json"
 )
 
 usernames = []string {
@@ -21,10 +21,23 @@ hints = []string {
 	"Just break it."
 }
 
+type Form struct {
+	Level int
+	Username string
+	password string
+}
+
 func Handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
-		fmt.Fprint(w, "SUCCESS")
+		var f Form
+		err := json.NewDecoder(r.Body).Decode(&f)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+	    } else {
+	    	fmt.Fprint(w, "SUCCESS")
+	    }
 	} else {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
 	}
 }
+
