@@ -34,16 +34,16 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 	    } else {
-	    	if (f.level >= len(usernames)) {
+	    	if (f.Level >= len(usernames)) {
 	    		fmt.Fprint(w, "Index Out of Bounds Exception")
 	    	} else {
-	    		true_user := usernames[f.level]
-	    		true_pass := passwords[f.level]
+	    		true_user := usernames[f.Level]
+	    		true_pass := passwords[f.Level]
 
-	    		if (f.user == true_user && f.pass == true_pass) {
+	    		if (f.User == true_user && f.Pass == true_pass) {
 	    			fmt.Fprint(w, "SUCCESS")
 	    		} else {
-	    			fmt.Fprint(w, hints[f.level])
+	    			fmt.Fprint(w, hints[f.Level])
 	    		}
 	    	}
 	    	
