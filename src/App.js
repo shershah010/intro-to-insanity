@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 
 import './App.css';
 
-const client = new ApolloClient();
-
 function App() {
 
   const [date, setDate] = useState(null);
