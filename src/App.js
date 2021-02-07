@@ -21,8 +21,9 @@ function App() {
       }
 
       const res = await fetch('/api/form', requestOptions);
-      console.log(res);
-      setDate(res.Text);
+      const message = await res.text();
+      console.log(message);
+
     }
     getDate(0, "crow", "forest");
   }, []);
