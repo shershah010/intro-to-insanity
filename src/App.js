@@ -8,7 +8,7 @@ function App() {
   const [date, setDate] = useState(null);
   useEffect(() => {
     async function getDate(level, user, pass) {
-      data = {
+      const data = {
         level: level,
         user: user,
         pass: pass
