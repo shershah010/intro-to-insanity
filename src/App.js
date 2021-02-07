@@ -1,16 +1,31 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+
 import './App.css';
 
+const client = new ApolloClient();
+
 function App() {
+
   const [date, setDate] = useState(null);
   useEffect(() => {
-    async function getDate() {
-      const res = await fetch('/api/date');
-      const newDate = await res.text();
-      setDate(newDate);
+    async function getDate(level, user, pass) {
+      data = {
+        level: level,
+        user: user,
+        pass: pass
+      };
+
+      const requestOptions = {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      }
+
+      const res = await fetch('/api/form', requestOptions);
+      console.log(res);
     }
-    getDate();
+    getDate(0, "crow", "forest");
   }, []);
   return (
     <main>

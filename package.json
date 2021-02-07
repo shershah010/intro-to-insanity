@@ -1,8 +1,10 @@
 {
-  "name": "create-react-app",
+  "name": "introductions-to-insanity",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.8",
+    "graphql": "^15.5.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-scripts": "2.1.1"
