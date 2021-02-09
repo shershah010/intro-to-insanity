@@ -30,10 +30,9 @@ class Form extends React.Component {
   handleSubmit(event) {
     this.setState({invalidUsername: this.state.username === ''});
     this.setState({invalidPassword: this.state.password === ''});
-    if (!this.state.invalidUsername || !this.state.invalidPassword) {
+    if (this.state.username !== '' && this.state.password !== '') {
       this.props.onFormSubmit(this.props.level, this.state.username, this.state.password);  
     }
-    // event.preventDefault();
   }
   
   render() {
