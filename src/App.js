@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { Scene } from './scene.jsx' 
-import { Form } from './form.jsx';
+import { Form } from './form/form.jsx';
 import './App.css';
 
 
 
 function App() {
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: 'dark',
+    },
+  });
+
   const [level, setLevel] = useState(0);
 
   async function submitForm(level, user, pass) {
@@ -33,11 +41,13 @@ function App() {
   }
 
   return (
-    <main>
-      <p>{level}</p>
-      <Scene level={level} />
-      <Form level={level} onFormSubmit={submitForm} />
-    </main>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <main>
+        <Scene level={level} />
+        <Form level={level} onFormSubmit={submitForm} />
+      </main>
+    </ThemeProvider>
   );
 }
 
