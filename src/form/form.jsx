@@ -72,6 +72,7 @@ class Form extends React.Component {
           variant="contained"
           classes={{ root: 'spacing' }} 
           color="primary"
+          type="submit"
           onClick={this.handleSubmit}>
           Submit
         </Button>
