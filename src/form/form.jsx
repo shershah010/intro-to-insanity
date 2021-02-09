@@ -33,6 +33,7 @@ class Form extends React.Component {
     if (this.state.username !== '' && this.state.password !== '') {
       this.props.onFormSubmit(this.props.level, this.state.username, this.state.password);  
     }
+    event.preventDefault();
   }
   
   render() {
